@@ -85,19 +85,21 @@ export default function CategoriesClient({ initialCategories }: { initialCategor
           </h2>
 
           {adding ? (
-            <div className="space-y-3">
-              <input
-                className={`${inputClass} w-full`}
-                placeholder="Category name *"
-                value={newName}
-                onChange={e => { setNewName(e.target.value); setNewSlug(slugifyLib(e.target.value, { lower: true, strict: true })) }}
-              />
-              <input
-                className={`${inputClass} w-full`}
-                placeholder="Slug (auto-generated)"
-                value={newSlug}
-                onChange={e => setNewSlug(e.target.value)}
-              />
+            <div className="w-1/2 mx-auto space-y-3">
+              <div className="grid grid-cols-2 gap-3">
+                <input
+                  className={`${inputClass} w-full`}
+                  placeholder="Category name *"
+                  value={newName}
+                  onChange={e => { setNewName(e.target.value); setNewSlug(slugifyLib(e.target.value, { lower: true, strict: true })) }}
+                />
+                <input
+                  className={`${inputClass} w-full`}
+                  placeholder="Slug (auto-generated)"
+                  value={newSlug}
+                  onChange={e => setNewSlug(e.target.value)}
+                />
+              </div>
               <input
                 className={`${inputClass} w-full`}
                 placeholder="Description (optional)"
