@@ -9,9 +9,10 @@ interface ImageUploaderProps {
   value: string | null
   onChange: (url: string | null, path: string | null) => void
   label?: string
+  objectFit?: 'cover' | 'contain'
 }
 
-export default function ImageUploader({ bucket, value, onChange, label = 'Upload Image' }: ImageUploaderProps) {
+export default function ImageUploader({ bucket, value, onChange, label = 'Upload Image', objectFit = 'cover' }: ImageUploaderProps) {
   const [uploading, setUploading] = useState(false)
   const supabase = createClient()
 
@@ -35,9 +36,9 @@ export default function ImageUploader({ bucket, value, onChange, label = 'Upload
   return (
     <div>
       {value ? (
-        <div className="relative w-full h-48 rounded-xl overflow-hidden border border-gray-200">
+        <div className="relative w-full h-48 rounded-xl overflow-hidden border border-gray-200 bg-gray-50">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={value} alt="Uploaded" className="w-full h-full object-cover" />
+          <img src={value} alt="Uploaded" className={`w-full h-full ${objectFit === 'contain' ? 'object-contain' : 'object-cover'}`} />
           <button
             type="button"
             onClick={handleRemove}

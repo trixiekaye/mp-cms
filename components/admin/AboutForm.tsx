@@ -63,6 +63,7 @@ export default function AboutForm({ config }: AboutFormProps) {
             value={aboutImageUrl}
             onChange={(url) => setAboutImageUrl(url)}
             label="Upload profile image"
+            objectFit="contain"
           />
         </div>
 
