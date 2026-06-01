@@ -2,8 +2,9 @@ import { createClient } from '@/lib/supabase/server'
 
 export default async function ContactSection() {
   const supabase = await createClient()
-  const { data: config } = await supabase.from('site_config').select('contact_email').eq('id', 1).single()
+  const { data: config } = await supabase.from('site_config').select('contact_email, contact_message').eq('id', 1).single()
   const contactEmail = config?.contact_email ?? 'hello@example.com'
+  const contactMessage = config?.contact_message ?? "Have a question, collaboration idea, or just want to say hello? I'd love to hear from you."
 
   return (
     <section id="contact" className="py-20 px-6 bg-gradient-to-br from-[#e84080] to-[#c93070]">
@@ -11,7 +12,7 @@ export default async function ContactSection() {
         <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
           Get in Touch
         </h2>
-        <p className="text-white/80 mb-10">Have a question, collaboration idea, or just want to say hello? I&apos;d love to hear from you.</p>
+        <p className="text-white/80 mb-10">{contactMessage}</p>
         <ContactForm contactEmail={contactEmail} />
       </div>
     </section>

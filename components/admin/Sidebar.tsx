@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { LayoutDashboard, FileText, Image, LogOut, ChevronDown, Tag } from 'lucide-react'
+import { LayoutDashboard, FileText, Image, LogOut, ChevronDown, Tag, User } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import MPLogo from '@/components/shared/MPLogo'
 import { useState } from 'react'
@@ -82,6 +82,11 @@ export default function Sidebar() {
         <Link href="/admin/media" className={linkClass(pathname.startsWith('/admin/media'))}>
           <Image size={18} />
           Media
+        </Link>
+
+        <Link href="/admin/about" className={linkClass(pathname.startsWith('/admin/about'))}>
+          <User size={18} />
+          About Me
         </Link>
       </nav>
 
