@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Pencil, Trash2, Eye, EyeOff, Star } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import ConfirmModal from './ConfirmModal'
@@ -68,8 +67,9 @@ export default function BlogTableClient({ initialBlogs }: { initialBlogs: Blog[]
                 <tr key={blog.id} className="border-t border-gray-100 hover:bg-gray-50">
                   <td className="px-5 py-3">
                     {blog.cover_image_url ? (
-                      <div className="w-12 h-8 rounded-lg overflow-hidden relative">
-                        <Image src={blog.cover_image_url} alt="" fill className="object-cover" />
+                      <div className="w-12 h-8 rounded-lg overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={blog.cover_image_url} alt="" className="w-full h-full object-cover" />
                       </div>
                     ) : (
                       <div className="w-12 h-8 rounded-lg bg-[#ffd6e7]" />

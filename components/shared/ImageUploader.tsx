@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Upload, X } from 'lucide-react'
-import Image from 'next/image'
 
 interface ImageUploaderProps {
   bucket: string
@@ -37,7 +36,8 @@ export default function ImageUploader({ bucket, value, onChange, label = 'Upload
     <div>
       {value ? (
         <div className="relative w-full h-48 rounded-xl overflow-hidden border border-gray-200">
-          <Image src={value} alt="Uploaded" fill className="object-cover" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={value} alt="Uploaded" className="w-full h-full object-cover" />
           <button
             type="button"
             onClick={handleRemove}

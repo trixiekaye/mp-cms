@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import Image from 'next/image'
 import { createClient } from '@/lib/supabase/client'
 import ConfirmModal from './ConfirmModal'
 import { Upload, Copy, Trash2, FileIcon } from 'lucide-react'
@@ -107,7 +106,8 @@ export default function MediaGridClient({ initialItems }: { initialItems: MediaI
             <div key={item.id} className="bg-white rounded-2xl border border-[#ffd6e7] overflow-hidden group">
               <div className="relative h-36 bg-[#fff0f5]">
                 {item.file_type === 'image' ? (
-                  <Image src={item.file_url} alt={item.file_name} fill className="object-cover" loading="lazy" />
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={item.file_url} alt={item.file_name} className="w-full h-full object-cover" loading="lazy" />
                 ) : (
                   <div className="flex items-center justify-center h-full">
                     <FileIcon size={40} className="text-[#ffadd2]" />
