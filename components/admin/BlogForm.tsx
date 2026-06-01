@@ -76,33 +76,41 @@ export default function BlogForm({ blog }: BlogFormProps) {
     <div className="w-full space-y-6">
       {error && <p className="text-sm text-red-600 bg-red-50 px-3 py-2 rounded-lg">{error}</p>}
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
-        <input className={inputClass} value={title} onChange={e => handleTitleChange(e.target.value)} placeholder="Blog title" />
+      {/* Featured toggle — top */}
+      <div className="flex items-center gap-3">
+        <div className={toggleClass(isFeatured)} onClick={() => setIsFeatured(!isFeatured)}>
+          <span className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${isFeatured ? 'translate-x-4' : ''}`} />
+        </div>
+        <span className="text-sm font-medium text-gray-700">Featured</span>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Slug</label>
-        <input className={inputClass} value={slug} onChange={e => setSlug(e.target.value)} placeholder="url-friendly-slug" />
+      {/* Title + Slug in one row */}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+          <input className={inputClass} value={title} onChange={e => handleTitleChange(e.target.value)} placeholder="Blog title" />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Slug</label>
+          <input className={inputClass} value={slug} onChange={e => setSlug(e.target.value)} placeholder="url-friendly-slug" />
+        </div>
       </div>
 
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-        <select
-          className={inputClass}
-          value={categoryId}
-          onChange={e => setCategoryId(e.target.value)}
-        >
-          <option value="">— No category —</option>
-          {categories.map(cat => (
-            <option key={cat.id} value={cat.id}>{cat.name}</option>
-          ))}
-        </select>
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">Excerpt</label>
-        <textarea className={`${inputClass} resize-none`} rows={3} value={excerpt} onChange={e => setExcerpt(e.target.value)} placeholder="Short description…" />
+      {/* Category + Excerpt in one row */}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+          <select className={inputClass} value={categoryId} onChange={e => setCategoryId(e.target.value)}>
+            <option value="">— No category —</option>
+            {categories.map(cat => (
+              <option key={cat.id} value={cat.id}>{cat.name}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Excerpt</label>
+          <textarea className={`${inputClass} resize-none`} rows={3} value={excerpt} onChange={e => setExcerpt(e.target.value)} placeholder="Short description…" />
+        </div>
       </div>
 
       <div>
@@ -118,15 +126,6 @@ export default function BlogForm({ blog }: BlogFormProps) {
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">Content</label>
         <RichTextEditor value={content} onChange={setContent} />
-      </div>
-
-      <div className="flex items-center gap-8">
-        <label className="flex items-center gap-3 cursor-pointer">
-          <div className={toggleClass(isFeatured)} onClick={() => setIsFeatured(!isFeatured)}>
-            <span className={`absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${isFeatured ? 'translate-x-4' : ''}`} />
-          </div>
-          <span className="text-sm text-gray-700">Featured</span>
-        </label>
       </div>
 
       <div className="flex items-center gap-4 pt-2">
