@@ -77,7 +77,7 @@ export default function CategoriesClient({ initialCategories }: { initialCategor
         />
       )}
 
-      <div className="max-w-2xl">
+      <div className="w-full">
         {/* Add new */}
         <div className="bg-white rounded-2xl border border-[#ffd6e7] p-6 mb-6">
           <h2 className="text-base font-semibold text-gray-700 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>

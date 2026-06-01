@@ -6,7 +6,7 @@ export default function NewBlogPage() {
   return (
     <>
       <TopBar title="New Blog" />
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-8 min-w-0">
         <BlogForm />
       </main>
     </>

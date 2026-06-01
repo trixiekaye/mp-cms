@@ -14,7 +14,7 @@ export default async function CategoriesPage() {
   return (
     <>
       <TopBar title="Blog Categories" />
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-8 min-w-0">
         <CategoriesClient initialCategories={(categories as BlogCategory[]) ?? []} />
       </main>
     </>

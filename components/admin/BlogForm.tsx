@@ -73,7 +73,7 @@ export default function BlogForm({ blog }: BlogFormProps) {
   const toggleClass = (on: boolean) => `relative inline-flex w-10 h-6 rounded-full transition-colors cursor-pointer ${on ? 'bg-[#e84080]' : 'bg-gray-200'}`
 
   return (
-    <div className="max-w-3xl space-y-6">
+    <div className="w-full space-y-6">
       {error && <p className="text-sm text-red-600 bg-red-50 px-3 py-2 rounded-lg">{error}</p>}
 
       <div>

@@ -16,7 +16,7 @@ export default async function AdminBlogsPage() {
   return (
     <>
       <TopBar title="Blogs" />
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-8 min-w-0">
         <div className="flex justify-end mb-6">
           <Link
             href="/admin/blogs/new"

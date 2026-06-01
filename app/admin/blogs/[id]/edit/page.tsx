@@ -15,7 +15,7 @@ export default async function EditBlogPage({ params }: { params: Promise<{ id: s
   return (
     <>
       <TopBar title="Edit Blog" />
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-8 min-w-0">
         <BlogForm blog={blog as Blog} />
       </main>
     </>
