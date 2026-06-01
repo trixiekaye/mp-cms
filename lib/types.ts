@@ -1,3 +1,11 @@
+export interface BlogCategory {
+  id: string
+  name: string
+  slug: string
+  description: string | null
+  created_at: string
+}
+
 export interface Blog {
   id: string
   title: string
@@ -5,6 +13,7 @@ export interface Blog {
   excerpt: string | null
   content: string | null
   cover_image_url: string | null
+  category_id: string | null
   is_featured: boolean
   is_published: boolean
   published_at: string | null

@@ -1,11 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import RichTextEditor from '@/components/shared/RichTextEditor'
 import ImageUploader from '@/components/shared/ImageUploader'
-import type { Blog } from '@/lib/types'
+import type { Blog, BlogCategory } from '@/lib/types'
 import slugifyLib from 'slugify'
 
 interface BlogFormProps {
@@ -21,10 +21,17 @@ export default function BlogForm({ blog }: BlogFormProps) {
   const [excerpt, setExcerpt] = useState(blog?.excerpt ?? '')
   const [content, setContent] = useState(blog?.content ?? '')
   const [coverUrl, setCoverUrl] = useState<string | null>(blog?.cover_image_url ?? null)
+  const [categoryId, setCategoryId] = useState<string>(blog?.category_id ?? '')
+  const [categories, setCategories] = useState<BlogCategory[]>([])
   const [isFeatured, setIsFeatured] = useState(blog?.is_featured ?? false)
-  const [isPublished, setIsPublished] = useState(blog?.is_published ?? false)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    supabase.from('blog_categories').select('*').order('name').then(({ data }) => {
+      if (data) setCategories(data as BlogCategory[])
+    })
+  }, [])
 
   function handleTitleChange(v: string) {
     setTitle(v)
@@ -40,6 +47,7 @@ export default function BlogForm({ blog }: BlogFormProps) {
       excerpt: excerpt || null,
       content: content || null,
       cover_image_url: coverUrl,
+      category_id: categoryId || null,
       is_featured: isFeatured,
       is_published: publish,
       published_at: publish ? (blog?.published_at ?? new Date().toISOString()) : null,
@@ -76,6 +84,20 @@ export default function BlogForm({ blog }: BlogFormProps) {
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">Slug</label>
         <input className={inputClass} value={slug} onChange={e => setSlug(e.target.value)} placeholder="url-friendly-slug" />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+        <select
+          className={inputClass}
+          value={categoryId}
+          onChange={e => setCategoryId(e.target.value)}
+        >
+          <option value="">— No category —</option>
+          {categories.map(cat => (
+            <option key={cat.id} value={cat.id}>{cat.name}</option>
+          ))}
+        </select>
       </div>
 
       <div>
