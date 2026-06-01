@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 import type { MediaItem } from '@/lib/types'
@@ -19,9 +18,10 @@ export default function GalleryClient({ images }: { images: MediaItem[] }) {
           <button
             key={img.id}
             onClick={() => { setIndex(i); setOpen(true) }}
-            className="relative aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+            className="aspect-square rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
           >
-            <Image src={img.file_url} alt={img.file_name} fill className="object-cover" loading="lazy" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={img.file_url} alt={img.file_name} className="w-full h-full object-cover" loading="lazy" />
           </button>
         ))}
       </div>

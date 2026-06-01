@@ -1,6 +1,4 @@
 import { createClient } from '@/lib/supabase/server'
-import Image from 'next/image'
-
 export default async function AboutMeSection() {
   const supabase = await createClient()
   const { data: config } = await supabase.from('site_config').select('*').eq('id', 1).single()
@@ -13,7 +11,8 @@ export default async function AboutMeSection() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden bg-[#ffd6e7]">
           {imageUrl ? (
-            <Image src={imageUrl} alt="About MP" fill className="object-cover" />
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={imageUrl} alt="About MP" className="w-full h-full object-cover" />
           ) : (
             <div className="flex items-center justify-center h-full">
               <span className="text-6xl font-bold text-[#ffadd2]" style={{ fontFamily: 'var(--font-playfair)' }}>MP</span>

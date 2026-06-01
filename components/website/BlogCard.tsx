@@ -1,14 +1,14 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { format } from 'date-fns'
 import type { Blog } from '@/lib/types'
 
 export default function BlogCard({ blog }: { blog: Blog }) {
   return (
     <Link href={`/blogs/${blog.slug}`} className="group bg-white rounded-2xl shadow-sm hover:shadow-md border border-[#ffd6e7] overflow-hidden transition-shadow">
-      <div className="relative h-48 bg-[#fff0f5]">
+      <div className="h-48 bg-[#fff0f5] overflow-hidden">
         {blog.cover_image_url ? (
-          <Image src={blog.cover_image_url} alt={blog.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={blog.cover_image_url} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
         ) : (
           <div className="h-full bg-gradient-to-br from-[#ffd6e7] to-[#ffadd2]" />
         )}

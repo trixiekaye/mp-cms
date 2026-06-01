@@ -1,7 +1,6 @@
 export const dynamic = 'force-dynamic'
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
 import Link from 'next/link'
 import { format } from 'date-fns'
 import type { Blog } from '@/lib/types'
@@ -23,8 +22,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <article className="min-h-screen bg-white">
       {post.cover_image_url && (
-        <div className="relative w-full h-72 sm:h-96">
-          <Image src={post.cover_image_url} alt={post.title} fill className="object-cover" priority />
+        <div className="relative w-full h-72 sm:h-96 overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={post.cover_image_url} alt={post.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
         </div>
       )}
@@ -54,4 +54,3 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     </article>
   )
 }
-
