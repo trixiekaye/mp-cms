@@ -64,12 +64,13 @@ export default function AboutForm({ config }: AboutFormProps) {
             onChange={(url) => setAboutImageUrl(url)}
             label="Upload profile image"
             objectFit="contain"
+            previewHeight="h-80"
           />
         </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">About Me Text</label>
-          <RichTextEditor value={aboutText} onChange={setAboutText} />
+          <RichTextEditor value={aboutText} onChange={setAboutText} minHeight="min-h-[400px]" />
         </div>
       </div>
 

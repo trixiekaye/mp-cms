@@ -27,9 +27,10 @@ const FONT_SIZES = ['10', '12', '14', '16', '18', '20', '24', '28', '32', '36', 
 interface RichTextEditorProps {
   value: string
   onChange: (value: string) => void
+  minHeight?: string
 }
 
-export default function RichTextEditor({ value, onChange }: RichTextEditorProps) {
+export default function RichTextEditor({ value, onChange, minHeight = 'min-h-[300px]' }: RichTextEditorProps) {
   const supabase = createClient()
 
   const editor = useEditor({
@@ -46,7 +47,7 @@ export default function RichTextEditor({ value, onChange }: RichTextEditorProps)
     onUpdate: ({ editor }) => onChange(editor.getHTML()),
     editorProps: {
       attributes: {
-        class: 'prose max-w-none min-h-[300px] focus:outline-none px-4 py-3',
+        class: `prose max-w-none ${minHeight} focus:outline-none px-4 py-3`,
       },
     },
   })
