@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import ImageUploader from '@/components/shared/ImageUploader'
+import RichTextEditor from '@/components/shared/RichTextEditor'
 import type { SiteConfig } from '@/lib/types'
 import { CheckCircle } from 'lucide-react'
 
@@ -66,14 +67,8 @@ export default function AboutForm({ config }: AboutFormProps) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">About Me Text</label>
-          <textarea
-            className={`${inputClass} resize-none`}
-            rows={6}
-            value={aboutText}
-            onChange={e => setAboutText(e.target.value)}
-            placeholder="Write something about yourself…"
-          />
+          <label className="block text-sm font-medium text-gray-700 mb-2">About Me Text</label>
+          <RichTextEditor value={aboutText} onChange={setAboutText} />
         </div>
       </div>
 

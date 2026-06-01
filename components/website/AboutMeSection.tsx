@@ -23,7 +23,10 @@ export default async function AboutMeSection() {
           <h2 className="text-3xl font-bold text-[#7a1445] mb-6" style={{ fontFamily: 'var(--font-playfair)' }}>
             About Me
           </h2>
-          <p className="text-gray-600 leading-relaxed whitespace-pre-line">{text}</p>
+          <div
+            className="prose prose-lg max-w-none prose-a:text-[#e84080] prose-strong:text-[#7a1445] text-gray-600"
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
         </div>
       </div>
     </section>
