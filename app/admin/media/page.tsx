@@ -13,7 +13,7 @@ export default async function MediaPage() {
 
   return (
     <>
-      <TopBar title="Media Library" />
+      <TopBar title="Gallery" />
       <main className="flex-1 p-8">
         <MediaGridClient initialItems={(items as MediaItem[]) ?? []} />
       </main>

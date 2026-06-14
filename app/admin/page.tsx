@@ -34,7 +34,7 @@ export default async function AdminDashboard() {
           <StatCard label="Total Blogs"  value={totalBlogs     ?? 0} icon={FileText}  color="tan"   />
           <StatCard label="Published"    value={publishedBlogs ?? 0} icon={BookOpen}  color="warm"  />
           <StatCard label="Drafts"       value={draftBlogs     ?? 0} icon={FileX}     color="beige" />
-          <StatCard label="Media Items"  value={totalMedia     ?? 0} icon={ImageIcon} color="sand"  />
+          <StatCard label="Gallery Items" value={totalMedia     ?? 0} icon={ImageIcon} color="sand"  />
         </div>
 
         {/* Recent blogs */}

@@ -113,7 +113,7 @@ export default function Sidebar() {
 
         <Link href="/admin/media" className={linkClass(pathname.startsWith('/admin/media'))}>
           <Image size={18} />
-          Media
+          Gallery
         </Link>
 
         <Link href="/admin/about" className={linkClass(pathname.startsWith('/admin/about'))}>

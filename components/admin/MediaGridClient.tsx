@@ -3,11 +3,11 @@
 import { useState, useRef } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import ConfirmModal from './ConfirmModal'
-import { Upload, Copy, Trash2, FileIcon } from 'lucide-react'
+import { Upload, Copy, Trash2 } from 'lucide-react'
 import type { MediaItem } from '@/lib/types'
 import { format } from 'date-fns'
 
-type FilterType = 'all' | 'image' | 'document'
+type FilterType = 'all' | 'image'
 
 function formatBytes(bytes: number | null) {
   if (!bytes) return '—'
@@ -36,7 +36,7 @@ export default function MediaGridClient({ initialItems }: { initialItems: MediaI
       const { error } = await supabase.storage.from('media').upload(path, file)
       if (error) { alert('Upload failed: ' + error.message); continue }
       const { data } = supabase.storage.from('media').getPublicUrl(path)
-      const fileType = file.type.startsWith('image/') ? 'image' : 'document'
+      const fileType = 'image'
       const { data: inserted } = await supabase.from('media_items').insert({
         file_name: file.name,
         file_url: data.publicUrl,
@@ -73,7 +73,7 @@ export default function MediaGridClient({ initialItems }: { initialItems: MediaI
 
       <div className="flex items-center justify-between mb-6">
         <div className="flex gap-2">
-          {(['all', 'image', 'document'] as FilterType[]).map(f => (
+          {(['all', 'image'] as FilterType[]).map(f => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -86,7 +86,7 @@ export default function MediaGridClient({ initialItems }: { initialItems: MediaI
           ))}
         </div>
         <div>
-          <input type="file" ref={fileInput} multiple accept="image/*,.pdf,.doc,.docx" className="hidden" onChange={handleUpload} />
+          <input type="file" ref={fileInput} multiple accept="image/*" className="hidden" onChange={handleUpload} />
           <button
             onClick={() => fileInput.current?.click()}
             disabled={uploading}
@@ -105,14 +105,8 @@ export default function MediaGridClient({ initialItems }: { initialItems: MediaI
           {filtered.map((item) => (
             <div key={item.id} className="bg-white rounded-2xl border border-[#EDE0CF] overflow-hidden group">
               <div className="relative h-36 bg-[#F5EFE6]">
-                {item.file_type === 'image' ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={item.file_url} alt={item.file_name} className="w-full h-full object-cover" loading="lazy" />
-                ) : (
-                  <div className="flex items-center justify-center h-full">
-                    <FileIcon size={40} className="text-[#D9C4A8]" />
-                  </div>
-                )}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={item.file_url} alt={item.file_name} className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="p-3">
                 <p className="text-xs font-medium text-gray-700 truncate">{item.file_name}</p>
