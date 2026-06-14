@@ -7,7 +7,7 @@ export default async function ContactSection() {
   const contactMessage = config?.contact_message ?? "Have a question, collaboration idea, or just want to say hello? I'd love to hear from you."
 
   return (
-    <section id="contact" className="py-20 px-6 bg-gradient-to-br from-[#e84080] to-[#c93070]">
+    <section id="contact" className="py-20 px-6 bg-gradient-to-br from-[#B8916F] to-[#9E7758]">
       <div className="max-w-xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
           Get in Touch
@@ -43,7 +43,7 @@ function ContactForm({ contactEmail }: { contactEmail: string }) {
       />
       <button
         type="submit"
-        className="w-full py-3 bg-white text-[#e84080] font-semibold rounded-xl hover:bg-[#fff0f5] transition-colors"
+        className="w-full py-3 bg-white text-[#B8916F] font-semibold rounded-xl hover:bg-[#F5EFE6] transition-colors"
       >
         Send Message
       </button>

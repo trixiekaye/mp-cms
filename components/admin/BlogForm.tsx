@@ -69,8 +69,8 @@ export default function BlogForm({ blog }: BlogFormProps) {
     router.refresh()
   }
 
-  const inputClass = 'w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e84080] focus:border-transparent text-sm'
-  const toggleClass = (on: boolean) => `relative inline-flex w-10 h-6 rounded-full transition-colors cursor-pointer ${on ? 'bg-[#e84080]' : 'bg-gray-200'}`
+  const inputClass = 'w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B8916F] focus:border-transparent text-sm'
+  const toggleClass = (on: boolean) => `relative inline-flex w-10 h-6 rounded-full transition-colors cursor-pointer ${on ? 'bg-[#B8916F]' : 'bg-gray-200'}`
 
   return (
     <div className="w-full space-y-6">
@@ -141,7 +141,7 @@ export default function BlogForm({ blog }: BlogFormProps) {
           type="button"
           disabled={saving}
           onClick={() => handleSave(true)}
-          className="px-6 py-2.5 bg-[#e84080] hover:bg-[#c93070] text-white text-sm font-semibold rounded-xl transition-colors disabled:opacity-60"
+          className="px-6 py-2.5 bg-[#B8916F] hover:bg-[#9E7758] text-white text-sm font-semibold rounded-xl transition-colors disabled:opacity-60"
         >
           {saving ? 'Publishing…' : 'Publish'}
         </button>

@@ -43,7 +43,7 @@ export default function BlogsListClient({ initialBlogs, totalCount, pageSize }: 
           placeholder="Search posts…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="w-full px-4 py-2.5 border border-[#ffd6e7] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e84080] bg-white text-sm"
+          className="w-full px-4 py-2.5 border border-[#EDE0CF] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B8916F] bg-white text-sm"
         />
       </div>
 
@@ -60,7 +60,7 @@ export default function BlogsListClient({ initialBlogs, totalCount, pageSize }: 
           <button
             onClick={loadMore}
             disabled={loading}
-            className="px-8 py-3 border-2 border-[#e84080] text-[#e84080] font-semibold rounded-2xl hover:bg-[#fff0f5] transition-colors disabled:opacity-60"
+            className="px-8 py-3 border-2 border-[#B8916F] text-[#B8916F] font-semibold rounded-2xl hover:bg-[#F5EFE6] transition-colors disabled:opacity-60"
           >
             {loading ? 'Loading…' : 'Load More'}
           </button>

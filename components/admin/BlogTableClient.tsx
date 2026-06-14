@@ -47,12 +47,12 @@ export default function BlogTableClient({ initialBlogs }: { initialBlogs: Blog[]
         />
       )}
 
-      <div className="bg-white rounded-2xl shadow-sm border border-[#ffd6e7] overflow-hidden">
+      <div className="bg-white rounded-2xl shadow-sm border border-[#EDE0CF] overflow-hidden">
         {blogs.length === 0 ? (
           <p className="p-8 text-center text-gray-400">No blogs yet. Create your first post!</p>
         ) : (
           <table className="w-full text-sm">
-            <thead className="bg-[#fff0f5]">
+            <thead className="bg-[#F5EFE6]">
               <tr className="text-left text-gray-500">
                 <th className="px-5 py-3 font-medium">Cover</th>
                 <th className="px-5 py-3 font-medium">Title</th>
@@ -72,7 +72,7 @@ export default function BlogTableClient({ initialBlogs }: { initialBlogs: Blog[]
                         <img src={blog.cover_image_url} alt="" className="w-full h-full object-cover" />
                       </div>
                     ) : (
-                      <div className="w-12 h-8 rounded-lg bg-[#ffd6e7]" />
+                      <div className="w-12 h-8 rounded-lg bg-[#EDE0CF]" />
                     )}
                   </td>
                   <td className="px-5 py-3 font-medium text-gray-800 max-w-xs truncate">{blog.title}</td>
@@ -84,17 +84,17 @@ export default function BlogTableClient({ initialBlogs }: { initialBlogs: Blog[]
                     </span>
                   </td>
                   <td className="px-5 py-3">
-                    {blog.is_featured && <Star size={16} className="text-[#e84080] fill-[#e84080]" />}
+                    {blog.is_featured && <Star size={16} className="text-[#B8916F] fill-[#B8916F]" />}
                   </td>
                   <td className="px-5 py-3 text-gray-400">
                     {format(new Date(blog.created_at), 'MMM d, yyyy')}
                   </td>
                   <td className="px-5 py-3">
                     <div className="flex items-center gap-2">
-                      <Link href={`/admin/blogs/${blog.id}/edit`} className="p-1.5 rounded-lg hover:bg-[#fff0f5] text-gray-500 hover:text-[#e84080] transition-colors">
+                      <Link href={`/admin/blogs/${blog.id}/edit`} className="p-1.5 rounded-lg hover:bg-[#F5EFE6] text-gray-500 hover:text-[#B8916F] transition-colors">
                         <Pencil size={15} />
                       </Link>
-                      <button onClick={() => togglePublished(blog)} className="p-1.5 rounded-lg hover:bg-[#fff0f5] text-gray-500 hover:text-[#e84080] transition-colors">
+                      <button onClick={() => togglePublished(blog)} className="p-1.5 rounded-lg hover:bg-[#F5EFE6] text-gray-500 hover:text-[#B8916F] transition-colors">
                         {blog.is_published ? <EyeOff size={15} /> : <Eye size={15} />}
                       </button>
                       <button onClick={() => setDeleteTarget(blog)} className="p-1.5 rounded-lg hover:bg-red-50 text-gray-500 hover:text-red-500 transition-colors">

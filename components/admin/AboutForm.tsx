@@ -22,7 +22,7 @@ export default function AboutForm({ config }: AboutFormProps) {
   const [saved, setSaved] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const inputClass = 'w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e84080] focus:border-transparent text-sm'
+  const inputClass = 'w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#B8916F] focus:border-transparent text-sm'
 
   async function handleSave() {
     setSaving(true)
@@ -51,8 +51,8 @@ export default function AboutForm({ config }: AboutFormProps) {
       {error && <p className="text-sm text-red-600 bg-red-50 px-3 py-2 rounded-lg">{error}</p>}
 
       {/* About Me Section */}
-      <div className="bg-white rounded-2xl border border-[#ffd6e7] p-6 space-y-5">
-        <h2 className="text-base font-semibold text-gray-700 border-b border-[#ffd6e7] pb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
+      <div className="bg-white rounded-2xl border border-[#EDE0CF] p-6 space-y-5">
+        <h2 className="text-base font-semibold text-gray-700 border-b border-[#EDE0CF] pb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
           About Me Section
         </h2>
 
@@ -75,8 +75,8 @@ export default function AboutForm({ config }: AboutFormProps) {
       </div>
 
       {/* Contact Section */}
-      <div className="bg-white rounded-2xl border border-[#ffd6e7] p-6 space-y-5">
-        <h2 className="text-base font-semibold text-gray-700 border-b border-[#ffd6e7] pb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
+      <div className="bg-white rounded-2xl border border-[#EDE0CF] p-6 space-y-5">
+        <h2 className="text-base font-semibold text-gray-700 border-b border-[#EDE0CF] pb-3" style={{ fontFamily: 'var(--font-playfair)' }}>
           Contact Section
         </h2>
 
@@ -109,7 +109,7 @@ export default function AboutForm({ config }: AboutFormProps) {
           type="button"
           disabled={saving}
           onClick={handleSave}
-          className="px-6 py-2.5 bg-[#e84080] hover:bg-[#c93070] text-white text-sm font-semibold rounded-xl transition-colors disabled:opacity-60"
+          className="px-6 py-2.5 bg-[#B8916F] hover:bg-[#9E7758] text-white text-sm font-semibold rounded-xl transition-colors disabled:opacity-60"
         >
           {saving ? 'Saving…' : 'Save Changes'}
         </button>

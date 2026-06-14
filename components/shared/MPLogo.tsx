@@ -12,8 +12,8 @@ export default function MPLogo({ className = 'w-10 h-10' }: MPLogoProps) {
     >
       <defs>
         <radialGradient id="mpGrad" cx="30%" cy="30%" r="70%">
-          <stop offset="0%" stopColor="#ff85b3" />
-          <stop offset="100%" stopColor="#c93070" />
+          <stop offset="0%" stopColor="#D9C4A8" />
+          <stop offset="100%" stopColor="#9E7758" />
         </radialGradient>
       </defs>
       <circle cx="32" cy="32" r="30" fill="url(#mpGrad)" />

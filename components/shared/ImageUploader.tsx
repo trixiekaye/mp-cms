@@ -49,8 +49,8 @@ export default function ImageUploader({ bucket, value, onChange, label = 'Upload
           </button>
         </div>
       ) : (
-        <label className="flex flex-col items-center justify-center w-full h-36 border-2 border-dashed border-[#ffadd2] rounded-xl cursor-pointer hover:bg-[#fff0f5] transition-colors">
-          <Upload size={24} className="text-[#e84080] mb-2" />
+        <label className="flex flex-col items-center justify-center w-full h-36 border-2 border-dashed border-[#D9C4A8] rounded-xl cursor-pointer hover:bg-[#F5EFE6] transition-colors">
+          <Upload size={24} className="text-[#B8916F] mb-2" />
           <span className="text-sm text-gray-500">{uploading ? 'Uploading…' : label}</span>
           <input type="file" accept="image/*" className="hidden" onChange={handleFile} disabled={uploading} />
         </label>

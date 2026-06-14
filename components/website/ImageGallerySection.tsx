@@ -14,9 +14,9 @@ export default async function ImageGallerySection() {
   if (!images?.length) return null
 
   return (
-    <section id="gallery" className="py-20 px-6 bg-[#fff8fb]">
+    <section id="gallery" className="py-20 px-6 bg-[#F5EFE6]">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-[#7a1445] mb-12" style={{ fontFamily: 'var(--font-playfair)' }}>
+        <h2 className="text-3xl font-bold text-center text-[#5C4028] mb-12" style={{ fontFamily: 'var(--font-playfair)' }}>
           Gallery
         </h2>
         <GalleryClient images={images as MediaItem[]} />

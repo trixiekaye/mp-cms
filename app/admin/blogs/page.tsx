@@ -20,7 +20,7 @@ export default async function AdminBlogsPage() {
         <div className="flex justify-end mb-6">
           <Link
             href="/admin/blogs/new"
-            className="flex items-center gap-2 px-5 py-2.5 bg-[#e84080] hover:bg-[#c93070] text-white text-sm font-semibold rounded-xl transition-colors"
+            className="flex items-center gap-2 px-5 py-2.5 bg-[#B8916F] hover:bg-[#9E7758] text-white text-sm font-semibold rounded-xl transition-colors"
           >
             <Plus size={16} />
             New Blog

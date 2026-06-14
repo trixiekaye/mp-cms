@@ -3,16 +3,16 @@
 
 @theme {
   /* MP Brand Colors */
-  --color-mp-50: #fff0f5;
-  --color-mp-100: #ffd6e7;
-  --color-mp-200: #ffadd2;
-  --color-mp-300: #ff85b3;
-  --color-mp-400: #f7619a;
-  --color-mp-500: #e84080;
-  --color-mp-600: #c93070;
-  --color-mp-700: #a0205a;
-  --color-mp-800: #7a1445;
-  --color-mp-900: #550a30;
+  --color-mp-50: #F5EFE6;
+  --color-mp-100: #EDE0CF;
+  --color-mp-200: #E5D5BC;
+  --color-mp-300: #D9C4A8;
+  --color-mp-400: #C9A98A;
+  --color-mp-500: #B8916F;
+  --color-mp-600: #9E7758;
+  --color-mp-700: #7D5C3E;
+  --color-mp-800: #5C4028;
+  --color-mp-900: #3D2910;
 
   /* Typography */
   --font-display: "Playfair Display", Georgia, serif;

@@ -78,7 +78,7 @@ export default function MediaGridClient({ initialItems }: { initialItems: MediaI
               key={f}
               onClick={() => setFilter(f)}
               className={`px-4 py-1.5 rounded-xl text-sm font-medium transition-colors ${
-                filter === f ? 'bg-[#e84080] text-white' : 'bg-white border border-gray-200 text-gray-600 hover:border-[#e84080]'
+                filter === f ? 'bg-[#B8916F] text-white' : 'bg-white border border-gray-200 text-gray-600 hover:border-[#B8916F]'
               }`}
             >
               {f.charAt(0).toUpperCase() + f.slice(1)}
@@ -90,7 +90,7 @@ export default function MediaGridClient({ initialItems }: { initialItems: MediaI
           <button
             onClick={() => fileInput.current?.click()}
             disabled={uploading}
-            className="flex items-center gap-2 px-5 py-2.5 bg-[#e84080] hover:bg-[#c93070] text-white text-sm font-semibold rounded-xl transition-colors disabled:opacity-60"
+            className="flex items-center gap-2 px-5 py-2.5 bg-[#B8916F] hover:bg-[#9E7758] text-white text-sm font-semibold rounded-xl transition-colors disabled:opacity-60"
           >
             <Upload size={16} />
             {uploading ? 'Uploading…' : 'Upload'}
@@ -103,14 +103,14 @@ export default function MediaGridClient({ initialItems }: { initialItems: MediaI
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {filtered.map((item) => (
-            <div key={item.id} className="bg-white rounded-2xl border border-[#ffd6e7] overflow-hidden group">
-              <div className="relative h-36 bg-[#fff0f5]">
+            <div key={item.id} className="bg-white rounded-2xl border border-[#EDE0CF] overflow-hidden group">
+              <div className="relative h-36 bg-[#F5EFE6]">
                 {item.file_type === 'image' ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={item.file_url} alt={item.file_name} className="w-full h-full object-cover" loading="lazy" />
                 ) : (
                   <div className="flex items-center justify-center h-full">
-                    <FileIcon size={40} className="text-[#ffadd2]" />
+                    <FileIcon size={40} className="text-[#D9C4A8]" />
                   </div>
                 )}
               </div>
@@ -120,7 +120,7 @@ export default function MediaGridClient({ initialItems }: { initialItems: MediaI
                 <div className="flex gap-2 mt-2">
                   <button
                     onClick={() => { navigator.clipboard.writeText(item.file_url); alert('URL copied!') }}
-                    className="flex-1 flex items-center justify-center gap-1 py-1 rounded-lg bg-[#fff0f5] text-[#e84080] text-xs hover:bg-[#ffd6e7] transition-colors"
+                    className="flex-1 flex items-center justify-center gap-1 py-1 rounded-lg bg-[#F5EFE6] text-[#B8916F] text-xs hover:bg-[#EDE0CF] transition-colors"
                   >
                     <Copy size={12} /> Copy URL
                   </button>

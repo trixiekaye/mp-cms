@@ -21,7 +21,7 @@ export default function CategoriesClient({ initialCategories }: { initialCategor
   const [deleteTarget, setDeleteTarget] = useState<BlogCategory | null>(null)
   const supabase = createClient()
 
-  const inputClass = 'px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#e84080] focus:border-transparent'
+  const inputClass = 'px-3 py-2 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#B8916F] focus:border-transparent'
 
   async function handleAdd() {
     if (!newName.trim()) return
@@ -79,7 +79,7 @@ export default function CategoriesClient({ initialCategories }: { initialCategor
 
       <div className="w-full">
         {/* Add new */}
-        <div className="bg-white rounded-2xl border border-[#ffd6e7] p-6 mb-6">
+        <div className="bg-white rounded-2xl border border-[#EDE0CF] p-6 mb-6">
           <h2 className="text-base font-semibold text-gray-700 mb-4" style={{ fontFamily: 'var(--font-playfair)' }}>
             {adding ? 'New Category' : 'Categories'}
           </h2>
@@ -110,7 +110,7 @@ export default function CategoriesClient({ initialCategories }: { initialCategor
                 <button
                   onClick={handleAdd}
                   disabled={saving || !newName.trim()}
-                  className="flex items-center gap-1.5 px-4 py-2 bg-[#e84080] hover:bg-[#c93070] text-white text-sm font-medium rounded-xl disabled:opacity-60 transition-colors"
+                  className="flex items-center gap-1.5 px-4 py-2 bg-[#B8916F] hover:bg-[#9E7758] text-white text-sm font-medium rounded-xl disabled:opacity-60 transition-colors"
                 >
                   <Check size={14} /> {saving ? 'Saving…' : 'Save'}
                 </button>
@@ -125,7 +125,7 @@ export default function CategoriesClient({ initialCategories }: { initialCategor
           ) : (
             <button
               onClick={() => setAdding(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-[#e84080] hover:bg-[#c93070] text-white text-sm font-semibold rounded-xl transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-[#B8916F] hover:bg-[#9E7758] text-white text-sm font-semibold rounded-xl transition-colors"
             >
               <Plus size={15} /> Add Category
             </button>
@@ -133,12 +133,12 @@ export default function CategoriesClient({ initialCategories }: { initialCategor
         </div>
 
         {/* List */}
-        <div className="bg-white rounded-2xl border border-[#ffd6e7] overflow-hidden">
+        <div className="bg-white rounded-2xl border border-[#EDE0CF] overflow-hidden">
           {categories.length === 0 ? (
             <p className="p-8 text-center text-gray-400 text-sm">No categories yet.</p>
           ) : (
             <table className="w-full text-sm">
-              <thead className="bg-[#fff0f5]">
+              <thead className="bg-[#F5EFE6]">
                 <tr className="text-left text-gray-500">
                   <th className="px-5 py-3 font-medium">Name</th>
                   <th className="px-5 py-3 font-medium">Slug</th>
@@ -162,7 +162,7 @@ export default function CategoriesClient({ initialCategories }: { initialCategor
                         </td>
                         <td className="px-5 py-3">
                           <div className="flex gap-2">
-                            <button onClick={() => handleEdit(cat.id)} disabled={saving} className="p-1.5 rounded-lg bg-[#fff0f5] text-[#e84080] hover:bg-[#ffd6e7] transition-colors">
+                            <button onClick={() => handleEdit(cat.id)} disabled={saving} className="p-1.5 rounded-lg bg-[#F5EFE6] text-[#B8916F] hover:bg-[#EDE0CF] transition-colors">
                               <Check size={14} />
                             </button>
                             <button onClick={() => setEditingId(null)} className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 transition-colors">
@@ -178,7 +178,7 @@ export default function CategoriesClient({ initialCategories }: { initialCategor
                         <td className="px-5 py-3 text-gray-500 max-w-xs truncate">{cat.description ?? '—'}</td>
                         <td className="px-5 py-3">
                           <div className="flex gap-2">
-                            <button onClick={() => startEdit(cat)} className="p-1.5 rounded-lg hover:bg-[#fff0f5] text-gray-400 hover:text-[#e84080] transition-colors">
+                            <button onClick={() => startEdit(cat)} className="p-1.5 rounded-lg hover:bg-[#F5EFE6] text-gray-400 hover:text-[#B8916F] transition-colors">
                               <Pencil size={14} />
                             </button>
                             <button onClick={() => setDeleteTarget(cat)} className="p-1.5 rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-500 transition-colors">

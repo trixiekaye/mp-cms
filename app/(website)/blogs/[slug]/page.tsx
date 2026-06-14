@@ -30,11 +30,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       )}
 
       <div className="max-w-3xl mx-auto px-6 py-12">
-        <Link href="/blogs" className="text-sm text-[#e84080] hover:underline mb-6 inline-block">
+        <Link href="/blogs" className="text-sm text-[#B8916F] hover:underline mb-6 inline-block">
           ← Back to Blogs
         </Link>
 
-        <h1 className="text-4xl font-bold text-[#7a1445] mb-3 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
+        <h1 className="text-4xl font-bold text-[#5C4028] mb-3 leading-tight" style={{ fontFamily: 'var(--font-playfair)' }}>
           {post.title}
         </h1>
 
@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         {post.content && (
           <div
-            className="prose prose-lg max-w-none prose-headings:font-playfair prose-a:text-[#e84080] prose-strong:text-[#7a1445]"
+            className="prose prose-lg max-w-none prose-headings:font-playfair prose-a:text-[#B8916F] prose-strong:text-[#5C4028]"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         )}
